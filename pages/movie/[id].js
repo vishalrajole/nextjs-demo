@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Fetch necessary data for the blog post using params.id
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.id}?api_key=6dbcf6b4d31b238d4f21cd54be3ce1c1&language=en-US`
+    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.API_KEY}&language=en-US`
   );
 
   const result = await data.json();
