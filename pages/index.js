@@ -11,7 +11,7 @@ export default function Home({ data }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>Movie Database</p>
 
         <Link href="/movies">
           <a>Movies!</a>

@@ -1,10 +1,17 @@
 import Head from "next/head";
 import fetch from "node-fetch";
 import Link from "next/link";
+import styled from "styled-components";
+import Image from "next/image";
 
 import Layout from "../../components/layout";
 
 import { getAllMovieIds } from "../../lib/movies";
+
+const Poster = styled(Image)`
+  display: flex;
+  border-radius: 4px;
+`;
 
 export async function getStaticPaths() {
   // Return a list of possible value for id
@@ -37,7 +44,16 @@ export default function Movie({ movie }) {
       <Head>
         <title>{movie.title}</title>
       </Head>
+
+      <Poster
+        priority
+        src={`https://image.tmdb.org/t/p/w1400_and_h450_face/${movie.backdrop_path}`}
+        height={400}
+        width={1200}
+      />
+
       <div>{movie.title}</div>
+      <div>{movie.description}</div>
       <Link href="/movies">
         <a>Back to list</a>
       </Link>
